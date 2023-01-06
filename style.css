@@ -1,0 +1,122 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0px;
+}
+
+.bar-container {
+    display: grid;
+    grid-template-columns: 45px 25px 45px 25px 45px 25px 45px 25px 45px;
+    grid-template-rows: 45px;
+    align-items: center;
+    transition: all .5s;
+}
+
+.circle-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.circle.unloaded {
+    border: 5px solid rgba(0,0,0,.3);
+}
+
+.circle.loaded {
+    border: 5px solid rgba(0,0,0,.7);
+    position: absolute;
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    transition: clip-path .5s;
+}
+
+.circle-container h4 {
+    font-size: 1.3rem;
+    position: absolute;
+}
+
+.span-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+   
+.span {
+    height: 5px;
+    width: 100%;
+    border: none;
+}
+
+.span.unloaded {
+    background-color: rgba(0,0,0,.3);
+}
+
+.span.loaded {
+    background-color: rgba(0,0,0,.7);
+    position: absolute;
+    width: 0%;
+    transition: width .5s;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 0px 30px;
+}
+
+.btn-container button {
+    cursor: pointer;
+    height: 40px;
+    width: 50px;
+}
+
+.btn-container button.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 50%;
+}
+
+.btn img {
+    margin-top: 3px;
+}
+
+.btn-left img {
+    transform: rotateZ(180deg);
+}
+
+@media (min-width: 600px) {
+    .bar-container {
+        grid-template-columns: 50px 75px 50px 75px 50px 75px 50px 75px 50px;
+        grid-template-rows: 50px;
+        align-items: center;
+    }
+}
